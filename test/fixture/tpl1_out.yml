@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Test template
+Parameters:
+  TestParam:
+    Description: Test parameter
+    Type: String
+Resources:
+  LogGroup:
+    Type: 'AWS::Logs::LogGroup'
+    Properties:
+      LogGroupName: !Sub '${AWS::StackName}/${TestParam}/'

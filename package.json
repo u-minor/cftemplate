@@ -1,0 +1,79 @@
+{
+  "name": "@u-minor/cftemplate",
+  "description": "AWS CloudFormation YAML template generator",
+  "version": "1.0.0",
+  "author": "Minoru Nakata <minoru@sprocket.bz>",
+  "license": "MIT",
+  "repository": "u-minor/cftemplate",
+  "homepage": "https://github.com/u-minor/cftemplate#readme",
+  "bugs": {
+    "url": "https://github.com/u-minor/cftemplate/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "aws",
+    "cloudformation",
+    "yaml"
+  ],
+  "bin": {
+    "cftemplate": "dist/bin/cftemplate.js"
+  },
+  "main": "dist/lib/CFTemplate",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist; babel -d dist src; chmod 755 dist/bin/cftemplate.js",
+    "lint": "eslint src",
+    "lint:test": "eslint test",
+    "test": "eslint test && nyc --reporter=lcov --reporter=text mocha --recursive test/spec"
+  },
+  "dependencies": {
+    "js-yaml": "^3.13.1",
+    "json-refs": "^3.0.13",
+    "yargs": "^13.2.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "plugins": [
+      "standard"
+    ]
+  },
+  "nyc": {
+    "report-dir": "./reports/coverage",
+    "require": [
+      "@babel/register"
+    ]
+  }
+}

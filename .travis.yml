@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - node
+  - lts/*
+sudo: false
+cache: npm
+script: "npm run test"
+after_script: "npm i coveralls && cat ./reports/coverage/lcov.info | coveralls"

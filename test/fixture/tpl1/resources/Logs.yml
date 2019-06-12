@@ -1,0 +1,4 @@
+LogGroup:
+  Type: AWS::Logs::LogGroup
+  Properties:
+    LogGroupName: !Sub ${AWS::StackName}/${TestParam}/
