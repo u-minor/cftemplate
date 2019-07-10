@@ -40,7 +40,7 @@ const CFTemplate = {
 
   build: async params => {
     const tmpfiles = []
-    const indexYaml = params.index || `${params.dir}/index.yml`
+    const indexYaml = `${params.dir}/${params.entry}`
     const root = yaml.safeLoad(fs.readFileSync(indexYaml, 'utf8').toString(), { schema: CFTemplate.schema })
     const options = {
       filter: ['relative'],

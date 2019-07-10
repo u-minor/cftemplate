@@ -25,14 +25,67 @@ $ npm install cftemplate --save-dev
 
 Make separated YAMLs by using [json-refs], and put them info your source directory.
 
-> You must make `index.yml` for entry point.
-
 [Template example]
 
 Then, build template like below.
 
 ```bash
-$ cftemplate src > template.yml
+$ cftemplate srcdir > template.yml
+```
+
+## Command reference
+
+```
+Usage: cftemplate [options] <dir>
+
+Options:
+  --version     Show version number                                    [boolean]
+  -e, --entry   entry point file name            [string] [default: "index.yml"]
+  -o, --output  output file name                                        [string]
+  --help, -h    Show help                                              [boolean]
+```
+
+## Writing templates
+
+Make `index.yml` (default entry point) like below.
+
+> If you want to change it, use `--entry` option.
+
+You can use `$ref` to refer another template. (See [json-refs] for more information)
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Your project template
+
+Mappings:
+  $ref: mappings.yml
+
+Outputs:
+  $ref: outputs.yml
+
+Parameters:
+  $ref: parameters.yml
+
+Resources:
+  $ref: .resources.yml
+```
+
+If the template name starts with `.` (like `.resources.yml`), cftemplate try to merge all templates under the same directory (like `resources`).
+
+So you can create yaml files separately for each AWS resource type like `resources/CloudFront.yml`, `resources/S3.yml`, etc.
+
+Directory tree example:
+
+```
+cf/
+├── index.yml
+├── mappings.yml
+├── outputs.yml
+├── parameters.yml
+└── resources/
+    ├── CloudFront.yml
+    ├── Lambda.yml
+    └── S3.yml
 ```
 
 [travis-img]: https://img.shields.io/travis/u-minor/cftemplate/master.svg
