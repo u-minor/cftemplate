@@ -1,7 +1,7 @@
 {
   "name": "@u-minor/cftemplate",
   "description": "AWS CloudFormation YAML template generator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Minoru Nakata <minoru@sprocket.bz>",
   "license": "MIT",
   "repository": "u-minor/cftemplate",
