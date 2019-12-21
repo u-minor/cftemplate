@@ -12,13 +12,13 @@
 Global install
 
 ```bash
-$ npm install cftemplate -g
+$ npm install @u-minor/cftemplate -g
 ```
 
 or install and add to current package.
 
 ```bash
-$ npm install cftemplate --save-dev
+$ npm install @u-minor/cftemplate --save-dev
 ```
 
 ## Quick start
