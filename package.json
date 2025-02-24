@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "js-yaml": "^3.13.1",
-    "json-refs": "^3.0.13",
-    "yargs": "^15.0.2"
+    "json-refs": "^3.0.14",
+    "yargs": "^17.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
